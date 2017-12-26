@@ -1,4 +1,4 @@
-package com.skycopyhot.richpractice
+package com.skycopyhot.richpractice.ui
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -24,6 +24,7 @@ import android.widget.TextView
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
 import android.annotation.SuppressLint
+import com.skycopyhot.richpractice.R
 
 import kotlinx.android.synthetic.main.activity_login.*
 
