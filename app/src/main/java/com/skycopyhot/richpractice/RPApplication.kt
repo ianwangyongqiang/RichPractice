@@ -8,8 +8,11 @@ import android.app.Application
  */
 class RPApplication : Application() {
 
+    private lateinit var iAppComponent: IAppComponent
+
     override fun onCreate() {
         super.onCreate()
+
 
     }
 }

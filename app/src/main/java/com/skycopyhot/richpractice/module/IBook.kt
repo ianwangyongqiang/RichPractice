@@ -5,10 +5,10 @@ package com.skycopyhot.richpractice.module
  * IBook
  */
 interface IBook {
-    fun getId(): Int
-    fun getTitle(): String
-    fun getAuthor(): String
-    fun getType(): String
-    fun getNumber(): String
-    fun getSize(): Int
+    fun getBookId(): Int
+    fun getBookTitle(): String
+    fun getBookAuthor(): String
+    fun getBookType(): String
+    fun getBookNumber(): String
+    fun getBookSize(): Int
 }
