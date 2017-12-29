@@ -12,6 +12,6 @@ import io.reactivex.Flowable
 @Dao
 interface BookDao {
 
-    @Query("SELECT * FROM " + BookEntity.TABLE_NAME + " WHERE bookTitle LIKES :title")
+    @Query("SELECT * FROM " + BookEntity.TABLE_NAME + " WHERE bookTitle LIKE :title")
     fun getBooksByTitle(title: String): Flowable<List<BookEntity>>
 }

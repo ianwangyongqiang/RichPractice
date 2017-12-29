@@ -22,7 +22,6 @@ abstract class RPDatabase : RoomDatabase() {
     abstract fun getLoanDao(): LoanDao
     abstract fun getUserDao(): UserDao
 
-
     companion object {
 
         private val DB_NAME = "rp.db"

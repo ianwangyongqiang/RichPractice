@@ -8,11 +8,7 @@ import java.util.*
  * Created by yongqiangwang on 22/12/17.
  * LoanEntity
  */
-@Entity(tableName = LoanEntity.TABLE_NAME,
-        foreignKeys = [ForeignKey(entity = UserEntity::class, parentColumns = arrayOf("userId"), childColumns = arrayOf("loanUserId")),
-            ForeignKey(entity = BookEntity::class, parentColumns = arrayOf("bookId"), childColumns = arrayOf("loanBookId"))
-        ],
-        indices = [(Index(name = "loanUserId")), (Index(name = "loanBookId"))])
+@Entity(tableName = LoanEntity.TABLE_NAME)
 @TypeConverters(RPConverter::class)
 data class LoanEntity(@PrimaryKey(autoGenerate = true)
                       @ColumnInfo(name = "loanId")
@@ -25,6 +21,9 @@ data class LoanEntity(@PrimaryKey(autoGenerate = true)
                       val startTime: Date = Date(),
                       @ColumnInfo(name = "loanStatus")
                       val status: ELoanStatus = ELoanStatus.STATUS_DONE) {
+
+    @Ignore
+    constructor(): this(id = 0)
 
     enum class ELoanStatus {
         STATUS_AVAILABLE,

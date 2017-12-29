@@ -2,7 +2,7 @@ package com.skycopyhot.richpractice.database.entities
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
-import android.arch.persistence.room.Index
+import android.arch.persistence.room.Ignore
 import android.arch.persistence.room.PrimaryKey
 import com.skycopyhot.richpractice.module.IBook
 
@@ -10,8 +10,7 @@ import com.skycopyhot.richpractice.module.IBook
  * Created by yongqiangwang on 22/12/17.
  * BookEntity
  */
-@Entity(tableName = BookEntity.TABLE_NAME,
-        indices = [(Index(name = "bookId"))])
+@Entity(tableName = BookEntity.TABLE_NAME)
 data class BookEntity(@PrimaryKey(autoGenerate = true)
                       @ColumnInfo(name = "bookId")
                       val id: Int = 0,
@@ -25,6 +24,9 @@ data class BookEntity(@PrimaryKey(autoGenerate = true)
                       val number: String = "",
                       @ColumnInfo(name = "bookSize")
                       val size: Int = 0): IBook {
+
+    @Ignore
+    constructor(): this(id = 0)
 
     override fun getBookId(): Int = id
 

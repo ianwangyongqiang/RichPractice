@@ -8,8 +8,7 @@ import java.util.*
  * Created by yongqiangwang on 22/12/17.
  * User
  */
-@Entity(tableName = UserEntity.TABLE_NAME,
-        indices = [(Index(name = "userId"))])
+@Entity(tableName = UserEntity.TABLE_NAME)
 @TypeConverters(RPConverter::class)
 data class UserEntity(@PrimaryKey
                       @ColumnInfo(name = "userId")
@@ -26,6 +25,9 @@ data class UserEntity(@PrimaryKey
                       val age: Int = 0,
                       @ColumnInfo(name = "userLastActiveTime")
                       val lastActiveTime: Date = Date()) {
+
+    @Ignore
+    constructor(): this(id = 0)
 
     companion object {
         const val TABLE_NAME = "users"
